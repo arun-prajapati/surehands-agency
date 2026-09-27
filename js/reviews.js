@@ -1,6 +1,6 @@
 (function () {
   const API_URL =
-    "https://meow-service-test.flutterclone.com/api/sites/surehandagency-1785928272/reviews?nopaginate=1";
+    "https://lemeowapis.meowadvancedintelligence.com/api/sites/surehandagency-1785928272/reviews?nopaginate=1";
   const API_KEY = "site_237478a3ef018d77b8e9583957974d0add4db9b144a9ee63";
 
   let cachedReviews = null;

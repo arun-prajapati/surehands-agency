@@ -1,7 +1,7 @@
 (() => {
   const SITE_SLUG = "surehandagency-1785928272";
   const API_KEY = "site_237478a3ef018d77b8e9583957974d0add4db9b144a9ee63";
-  const BASE_URL = "https://meow-service-test.flutterclone.com";
+  const BASE_URL = "https://lemeowapis.meowadvancedintelligence.com";
 
   const container = document.getElementById("surehandsContactContainer");
   if (!container) return;
