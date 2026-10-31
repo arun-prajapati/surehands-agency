@@ -5,6 +5,8 @@
   const brandSlug = script?.dataset.brandSlug;
   const apiUrl = "https://lemeowapis.meowadvancedintelligence.com/api/user/brand";
   if (!brandSlug) return;
+  // Approved enquiry number; the legacy brand API can still return the previous number.
+  const fallbackContact = { phone: "+6588071780" };
 
   const getContactContainer = (element) => {
     const row = element.closest("[data-brand-contact-item], .info-row");
@@ -102,18 +104,20 @@
     .querySelectorAll(
       'a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me/"], [data-brand-phone-text], [data-brand-email-text], [data-brand-address-text], [data-brand-contact-list]',
     )
-    .forEach(hideContactElement);
+    .forEach((element) => {
+      if (!element.matches('a[href^="tel:"], a[href*="wa.me/"]') || !/\d{8,}/.test(element.href)) hideContactElement(element);
+    });
 
-  window.brandContactPromise = fetch(apiUrl, { headers: { Accept: "application/json" } })
+  window.brandContactPromise = fetch(apiUrl, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(10000) })
     .then((response) => {
       if (!response.ok) throw new Error(`Brand request failed (${response.status})`);
       return response.json();
     })
     .then((payload) => {
-      const brand = payload?.data?.find(
+      const apiBrand = payload?.data?.find(
         (item) => item.slug?.toLowerCase() === brandSlug.toLowerCase(),
       );
-      if (!brand) return null;
+      const brand = { ...apiBrand, phone: fallbackContact.phone };
 
       applyBrandContact(document, brand);
       const observer = new MutationObserver((mutations) => {
@@ -124,10 +128,26 @@
         });
       });
       observer.observe(document.body, { childList: true, subtree: true });
+      if (brand.address) {
+        const section = document.createElement("section");
+        section.style.cssText = "max-width:72rem;margin:2rem auto;padding:1rem";
+        const heading = document.createElement("h2");
+        heading.textContent = "Visit us";
+        const address = document.createElement("p");
+        address.textContent = brand.address;
+        const map = document.createElement("iframe");
+        map.title = "Business location";
+        map.src = `https://maps.google.com/maps?q=${encodeURIComponent(brand.address)}&output=embed`;
+        map.loading = "lazy";
+        map.referrerPolicy = "no-referrer-when-downgrade";
+        map.style.cssText = "width:100%;height:280px;border:0;border-radius:1rem;margin-top:1rem";
+        section.append(heading, address, map);
+        document.querySelector("footer")?.before(section);
+      }
       return brand;
     })
     .catch((error) => {
       console.error("Unable to load brand contact information", error);
-      return null;
+      return fallbackContact;
     });
 })();

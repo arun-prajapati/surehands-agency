@@ -547,7 +547,7 @@
         <div class="appt-modal__body">
           <div class="appt-modal__section">
             <div class="appt-modal__label">Questions? Contact us</div>
-            <a href="https://wa.me/?text=${waMsg}" hidden target="_blank" rel="noopener noreferrer" class="appt-modal__btn-wa">
+            <a href="https://wa.me/6588071780?text=${waMsg}" target="_blank" rel="noopener noreferrer" class="appt-modal__btn-wa">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A10 10 0 0 0 4.9 19.06L4 23l4.07-1.06A10 10 0 1 0 19.05 4.91Zm-7.05 16a8 8 0 0 1-4.07-1.12l-.29-.17-2.4.63.64-2.34-.19-.3A8 8 0 1 1 12 20.91Zm4.4-5.96c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
               WhatsApp Us
             </a>
@@ -555,7 +555,7 @@
           <div class="appt-modal__section">
             <div class="appt-modal__label">Book an appointment on Le Meow app</div>
             <div style="display:flex;gap:12px">
-              <a href="https://apps.apple.com/my/app/le-meow/id6763483119" target="_blank" rel="noopener noreferrer" class="appt-modal__btn-app">
+              <a href="https://apps.apple.com/sg/app/le-meow/id6763483119" target="_blank" rel="noopener noreferrer" class="appt-modal__btn-app">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 App Store
               </a>
