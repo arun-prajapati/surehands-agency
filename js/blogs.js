@@ -55,6 +55,31 @@
     el.setAttribute(attr, value);
   }
 
+  // BlogPosting structured data for one article (SEO audit: posts need Article / BlogPosting JSON-LD)
+  function addPostSchema({ title, description, image, date, updated, url }) {
+    const iso = (v) => {
+      const d = new Date(String(v ?? "").replace(" ", "T"));
+      return isNaN(d.getTime()) ? undefined : d.toISOString();
+    };
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: String(title).slice(0, 110),
+      description: description || undefined,
+      image: image ? [image] : undefined,
+      datePublished: iso(date),
+      dateModified: iso(updated || date),
+      author: { "@type": "Organization", name: "SureHands Agency", url: `${SITE_URL}/` },
+      publisher: { "@type": "Organization", name: "SureHands Agency", logo: { "@type": "ImageObject", url: `${SITE_URL}/images/icon-192.png` } },
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      url,
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
+  }
+
   async function fetchBlogs() {
     if (cachedBlogs) return cachedBlogs;
     try {
@@ -248,6 +273,14 @@
       setMeta('meta[property="og:image"]', "content", coverUrl);
       setMeta('meta[name="twitter:image"]', "content", coverUrl);
     }
+    addPostSchema({
+      title,
+      description: summary,
+      image: coverUrl,
+      date: getPublishedDate(blog),
+      updated: blog.updated_at,
+      url,
+    });
     const pubDate = formatDate(getPublishedDate(blog));
     const author = esc(blog.author || "SureHands Team");
     const tags = blog.tags || [];
