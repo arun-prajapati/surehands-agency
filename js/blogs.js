@@ -2,7 +2,58 @@
   const API_URL =
     "https://lemeowapis.meowadvancedintelligence.com/api/sites/surehandagency-1785928272/blogs?nopaginate=1";
 
+  const SITE_URL = "https://surehandagency.com";
   let cachedBlogs = null;
+
+  // Text from the API is escaped before it goes into HTML.
+  function esc(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  }
+
+  function plainText(html) {
+    const div = document.createElement("div");
+    div.innerHTML = String(html ?? "").replace(/<(script|style)[\s\S]*?<\/\1>/gi, "");
+    return (div.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
+  // Article HTML comes from the admin editor (BlockNote). Keep its markup, classes and styles,
+  // but remove anything that can run code: script-like elements, on* handlers, javascript: URLs.
+  const BLOCKED = new Set(["SCRIPT", "IFRAME", "OBJECT", "EMBED", "FORM", "INPUT", "BUTTON", "TEXTAREA", "SELECT", "LINK", "META", "BASE", "FRAME", "FRAMESET", "NOSCRIPT", "TEMPLATE"]);
+  function sanitize(html) {
+    const doc = new DOMParser().parseFromString(`<div>${html || ""}</div>`, "text/html");
+    const root = doc.body.firstChild;
+    root.querySelectorAll("*").forEach((el) => {
+      if (BLOCKED.has(el.tagName)) return el.remove();
+      for (const attr of Array.from(el.attributes)) {
+        const name = attr.name.toLowerCase();
+        const value = attr.value.replace(/[\s\u0000-\u001f]/g, "").toLowerCase();
+        if (name.startsWith("on")) el.removeAttribute(attr.name);
+        else if (["href", "src", "xlink:href", "action", "formaction", "srcdoc"].includes(name) &&
+          (value.startsWith("javascript:") || value.startsWith("vbscript:") || (value.startsWith("data:") && !value.startsWith("data:image/")) || name === "srcdoc"))
+          el.removeAttribute(attr.name);
+      }
+      if (el.tagName === "A" && el.getAttribute("target") === "_blank") el.setAttribute("rel", "noopener noreferrer");
+    });
+    // The page already has one <h1> (the article title).
+    root.querySelectorAll("h1").forEach((h) => {
+      const h2 = doc.createElement("h2");
+      for (const a of Array.from(h.attributes)) h2.setAttribute(a.name, a.value);
+      h2.append(...h.childNodes);
+      h.replaceWith(h2);
+    });
+    return root.innerHTML;
+  }
+
+  function setMeta(selector, attr, value) {
+    let el = document.head.querySelector(selector);
+    if (!el) {
+      const m = selector.match(/^(meta|link)\[(name|property|rel)="([^"]+)"\]$/);
+      el = document.createElement(m[1]);
+      el.setAttribute(m[2], m[3]);
+      document.head.appendChild(el);
+    }
+    el.setAttribute(attr, value);
+  }
 
   async function fetchBlogs() {
     if (cachedBlogs) return cachedBlogs;
@@ -56,13 +107,14 @@
 
     const coverUrl = getCoverImage(blog);
     const pubDate = formatDate(getPublishedDate(blog));
-    const author = blog.author || "SureHands Team";
+    const author = esc(blog.author || "SureHands Team");
+    const title = esc(plainText(blog.title));
 
     card.innerHTML = `
       <a href="blog-details.html?slug=${encodeURIComponent(blog.slug)}" class="blog-card__image-wrap">
         ${
           coverUrl
-            ? `<img src="${coverUrl}" alt="${blog.title}" class="blog-card__image" loading="lazy" onerror="this.parentElement.style.display='none'">`
+            ? `<img src="${esc(coverUrl)}" alt="${title}" class="blog-card__image" loading="lazy" onerror="this.parentElement.style.display='none'">`
             : ""
         }
       </a>
@@ -72,8 +124,8 @@
           <span class="blog-card__meta-dot"></span>
           <span>${author}</span>
         </div>
-        <h3 class="blog-card__title">${blog.title}</h3>
-        <p class="blog-card__desc">${blog.description || ""}</p>
+        <h3 class="blog-card__title">${title}</h3>
+        <p class="blog-card__desc">${esc(plainText(blog.description))}</p>
         <div class="blog-card__footer">
           <span class="blog-card__author">${author}</span>
           <a href="blog-details.html?slug=${encodeURIComponent(blog.slug)}" class="blog-card__readmore">
@@ -171,17 +223,35 @@
     if (skeleton) skeleton.style.display = "none";
 
     if (!blog) {
+      setMeta('meta[name="robots"]', "content", "noindex");
       if (notFound) notFound.classList.remove("hidden");
       return;
     }
 
-    document.title = `${blog.title} · SureHands Agency`;
+    const title = plainText(blog.title);
+    const summary = plainText(blog.excerpt || blog.description || blog.content).slice(0, 155);
+    const url = `${SITE_URL}/blog-details.html?slug=${encodeURIComponent(blog.slug)}`;
+    document.title = `${title} · SureHands Agency`;
+    setMeta('link[rel="canonical"]', "href", url);
+    setMeta('meta[property="og:url"]', "content", url);
+    setMeta('meta[property="og:type"]', "content", "article");
+    setMeta('meta[property="og:title"]', "content", `${title} · SureHands Agency`);
+    setMeta('meta[name="twitter:title"]', "content", `${title} · SureHands Agency`);
+    if (summary) {
+      setMeta('meta[name="description"]', "content", summary);
+      setMeta('meta[property="og:description"]', "content", summary);
+      setMeta('meta[name="twitter:description"]', "content", summary);
+    }
 
     const coverUrl = getCoverImage(blog);
+    if (coverUrl) {
+      setMeta('meta[property="og:image"]', "content", coverUrl);
+      setMeta('meta[name="twitter:image"]', "content", coverUrl);
+    }
     const pubDate = formatDate(getPublishedDate(blog));
-    const author = blog.author || "SureHands Team";
+    const author = esc(blog.author || "SureHands Team");
     const tags = blog.tags || [];
-    const views = blog.views || 0;
+    const views = Number(blog.views) || 0;
 
     const metaHTML = `
       <div class="blog-detail__meta">
@@ -194,7 +264,7 @@
 
     const tagsHTML =
       tags.length > 0
-        ? `<div class="blog-detail__tags">${tags.map((t) => `<span class="blog-detail__tag">${t}</span>`).join("")}</div>`
+        ? `<div class="blog-detail__tags">${tags.map((t) => `<span class="blog-detail__tag">${esc(t)}</span>`).join("")}</div>`
         : "";
 
     container.innerHTML = `
@@ -203,14 +273,14 @@
         Back to all articles
       </a>
       ${metaHTML}
-      <h1 class="blog-detail__title">${blog.title}</h1>
+      <h1 class="blog-detail__title">${esc(title)}</h1>
       ${tagsHTML}
       ${
         coverUrl
-          ? `<div class="blog-detail__cover"><img src="${coverUrl}" alt="${blog.title}" /></div>`
+          ? `<div class="blog-detail__cover"><img src="${esc(coverUrl)}" alt="${esc(title)}" /></div>`
           : ""
       }
-      <div class="blog-detail__content bn-default-styles bn-root">${blog.content}</div>
+      <div class="blog-detail__content bn-default-styles bn-root">${sanitize(blog.content)}</div>
     `;
   }
 

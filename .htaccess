@@ -1,0 +1,15 @@
+# SEO audit fixes (OpenLiteSpeed / Apache)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # One canonical host: www -> apex
+    RewriteCond %{HTTP_HOST} ^www\.surehandagency\.com$ [NC]
+    RewriteRule ^(.*)$ https://surehandagency.com/$1 [R=301,L]
+    # /blog and /blog/ -> the real blog page
+    RewriteRule ^blog/?$ /blog.html [R=301,L]
+    # One URL per legal page: the folder copies 301 to the .html URL in the sitemap
+    RewriteRule ^(privacy-policy|terms-and-conditions)/?(index\.html)?$ /$1.html [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
