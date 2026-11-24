@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="SureHands Agency is a sincere maid agency in Singapore, helping families find reliable domestic helpers through honest guidance, careful matching and aftercare."
+      content="SureHands Agency Pte. Ltd. (EA Licence No. 26C3573) is a MOM-licensed employment agency helping Singapore families plan home care support through consultations, careful needs assessment, documentation guidance and post-placement check-ins."
     />
-    <meta
-      name="keywords"
-      content="maid agency Singapore, domestic helper Singapore, Myanmar helper, Indonesia helper, transfer helper, eldercare, childcare, SureHands Agency"
-    />
-    <title>SureHands Agency · Sincere Maid Agency in Singapore</title>
+    <title>SureHands Agency Pte. Ltd. · MOM-Licensed Employment Agency (EA Licence No. 26C3573) · Singapore</title>
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png" />
@@ -26,7 +22,7 @@
             "name": "SureHands Agency",
             "legalName": "SureHands Agency Pte. Ltd.",
             "url": "https://surehandagency.com/",
-            "description": "SureHands Agency is a sincere maid agency in Singapore, helping families find reliable domestic helpers through honest guidance, careful matching and aftercare.",
+            "description": "SureHands Agency Pte. Ltd. (EA Licence No. 26C3573) is a MOM-licensed employment agency helping Singapore families plan home care support through consultations, careful needs assessment, documentation guidance and post-placement check-ins.",
             "logo": {
               "@type": "ImageObject",
               "url": "https://surehandagency.com/images/icon-192.png",
@@ -569,6 +565,23 @@
         color: #5c6b84;
       }
 
+      /* Licence strip (EALC 4(a)(iii): full name + licence no. on every page) */
+      .licence-strip {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+        padding: 6px 0;
+        text-align: center;
+        color: #4d5668;
+        border-bottom: 1px solid #e4e8ef;
+      }
+      @media (min-width: 640px) {
+        #nav:not(.scrolled) .licence-strip {
+          color: rgba(255, 255, 255, 0.8);
+          border-bottom-color: rgba(255, 255, 255, 0.14);
+        }
+      }
+
       .ulink {
         position: relative;
       }
@@ -629,55 +642,6 @@
       .num {
         font-family: "Fraunces", serif;
         font-weight: 300;
-      }
-
-      .price-card {
-        background: #fff;
-        border-radius: 24px;
-        border: 1px solid #e4e8ef;
-        overflow: hidden;
-        box-shadow:
-          0 1px 3px rgba(27, 34, 48, 0.02),
-          0 24px 60px -40px rgba(27, 34, 48, 0.12);
-        transition:
-          transform 0.35s ease,
-          box-shadow 0.35s ease;
-      }
-      .price-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 30px 60px -30px rgba(29, 52, 97, 0.18);
-      }
-      .price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px 0;
-        border-bottom: 1px solid #e4e8ef;
-      }
-      .price-row:last-child {
-        border-bottom: none;
-      }
-
-      .pay-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 9px 18px;
-        border-radius: 12px;
-        border: 1px solid #e4e8ef;
-        background: #fff;
-        font-size: 13px;
-        font-weight: 600;
-        color: #1b2230;
-        transition:
-          border-color 0.25s,
-          box-shadow 0.25s,
-          transform 0.25s;
-      }
-      .pay-badge:hover {
-        border-color: #1d3461;
-        box-shadow: 0 4px 12px -6px rgba(29, 52, 97, 0.2);
-        transform: translateY(-2px);
       }
 
       /* Blog Section */
@@ -790,189 +754,6 @@
         transform: translateX(2px);
       }
 
-      /* Helper Cards */
-      .helper-card {
-        display: block;
-        background: #fff;
-        border-radius: 28px;
-        border: 1px solid #e4e8ef;
-        box-shadow:
-          0 1px 3px rgba(27, 34, 48, 0.02),
-          0 24px 60px -40px rgba(27, 34, 48, 0.12);
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-        transition:
-          transform 0.35s ease,
-          box-shadow 0.35s ease,
-          border-color 0.35s ease;
-      }
-      .helper-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 30px 60px -30px rgba(29, 52, 97, 0.18);
-        border-color: rgba(92, 143, 191, 0.25);
-      }
-      .helper-card__photo-wrap {
-        position: relative;
-        aspect-ratio: 3 / 4;
-        overflow: hidden;
-        background: #e4e8ef;
-      }
-      .helper-card__photo {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: transform 0.5s ease;
-      }
-      .helper-card:hover .helper-card__photo {
-        transform: scale(1.04);
-      }
-      .helper-card__initials {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Fraunces", serif;
-        font-size: 2.75rem;
-        color: #1d3461;
-        opacity: 0.45;
-        background: linear-gradient(135deg, #dce8f3, #f5f1ea);
-      }
-      .helper-card__status {
-        position: absolute;
-        top: 14px;
-        right: 14px;
-        padding: 5px 12px;
-        border-radius: 999px;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: capitalize;
-      }
-      .helper-card__status--available {
-        background: #1c9550;
-        color: #fff;
-        border: 1px solid #1c9550;
-      }
-      .helper-card__status--assigned {
-        background: rgba(201, 166, 107, 0.18);
-        color: #8a6a2e;
-        border: 1px solid rgba(201, 166, 107, 0.32);
-      }
-      .helper-card__status--default {
-        background: rgba(92, 143, 191, 0.14);
-        color: #1d3461;
-        border: 1px solid rgba(92, 143, 191, 0.28);
-      }
-      .helper-card__body {
-        padding: 22px 24px 24px;
-      }
-      .helper-card__meta {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 12px;
-        color: #8b95a8;
-        margin-bottom: 8px;
-        text-transform: capitalize;
-      }
-      .helper-card__meta-dot {
-        width: 3px;
-        height: 3px;
-        border-radius: 50%;
-        background: #8b95a8;
-      }
-      .helper-card__name {
-        font-family: "Fraunces", serif;
-        font-weight: 400;
-        font-size: 1.3rem;
-        color: #1b2230;
-        margin-bottom: 8px;
-      }
-      .helper-card__skills {
-        font-size: 13px;
-        line-height: 1.55;
-        color: #4d5668;
-        margin-bottom: 18px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .helper-card__footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 14px;
-        border-top: 1px solid #e4e8ef;
-        font-size: 12.5px;
-      }
-      .helper-card__exp {
-        color: #4d5668;
-        font-weight: 500;
-      }
-      .helper-card__view {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-weight: 600;
-        color: #1d3461;
-        transition: gap 0.25s ease;
-      }
-      .helper-card:hover .helper-card__view {
-        gap: 10px;
-      }
-
-      /* Helpers Grid */
-      .helpers-load-more {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 13px 28px;
-        border-radius: 999px;
-        background: #1d3461;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        border: none;
-        cursor: pointer;
-        transition:
-          background 0.2s ease,
-          box-shadow 0.2s ease,
-          transform 0.2s ease;
-        box-shadow: 0 12px 30px -12px rgba(29, 52, 97, 0.45);
-      }
-      .helpers-load-more:hover:not(:disabled) {
-        background: #16264a;
-        transform: translateY(-2px);
-      }
-      .helpers-load-more:disabled {
-        opacity: 0.6;
-        cursor: default;
-        transform: none;
-      }
-      .helpers-load-more__spinner {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.35);
-        border-top-color: #fff;
-        animation: helpers-spin 0.7s linear infinite;
-        display: none;
-      }
-      .helpers-load-more.is-loading .helpers-load-more__spinner {
-        display: inline-block;
-      }
-      @keyframes helpers-spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
       /* Skeleton */
       .blog-skeleton-card {
         background: #fff;
@@ -1045,16 +826,16 @@
       gtag("js", new Date());
       gtag("config", "G-L5RBHLRHN7");
     </script>
-    <meta property="og:title" content="SureHands Agency · Sincere Maid Agency in Singapore" />
-    <meta property="og:description" content="SureHands Agency is a sincere maid agency in Singapore, helping families find reliable domestic helpers through honest guidance, careful matching and aftercare." />
+    <meta property="og:title" content="SureHands Agency Pte. Ltd. · MOM-Licensed Employment Agency (EA Licence No. 26C3573) · Singapore" />
+    <meta property="og:description" content="SureHands Agency Pte. Ltd. (EA Licence No. 26C3573) is a MOM-licensed employment agency helping Singapore families plan home care support through consultations, careful needs assessment, documentation guidance and post-placement check-ins." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SureHands Agency" />
     <meta property="og:locale" content="en_SG" />
     <meta property="og:image" content="https://surehandagency.com/images/team.jpg" />
     <meta property="og:image:alt" content="SureHands Agency" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SureHands Agency · Sincere Maid Agency in Singapore" />
-    <meta name="twitter:description" content="SureHands Agency is a sincere maid agency in Singapore, helping families find reliable domestic helpers through honest guidance, careful matching and aftercare." />
+    <meta name="twitter:title" content="SureHands Agency Pte. Ltd. · MOM-Licensed Employment Agency (EA Licence No. 26C3573) · Singapore" />
+    <meta name="twitter:description" content="SureHands Agency Pte. Ltd. (EA Licence No. 26C3573) is a MOM-licensed employment agency helping Singapore families plan home care support through consultations, careful needs assessment, documentation guidance and post-placement check-ins." />
     <meta name="twitter:image" content="https://surehandagency.com/images/team.jpg" />
     <link rel="canonical" href="https://surehandagency.com/" />
     <meta property="og:url" content="https://surehandagency.com/" />
@@ -1065,6 +846,11 @@
       id="nav"
       class="sm:fixed inset-x-0 top-0 z-40 transition-all duration-500"
     >
+      <div class="licence-strip">
+        <div class="max-w-7xl mx-auto px-5 md:px-10">
+          SureHands Agency Pte. Ltd. · EA Licence No. 26C3573 · MOM-licensed employment agency
+        </div>
+      </div>
       <div
         class="max-w-7xl mx-auto px-5 md:px-10 py-3 flex items-center justify-between"
       >
@@ -1162,23 +948,20 @@
           <a href="#services" class="ulink hover:text-white transition-colors"
             >Services</a
           >
-          <a href="#helpers" class="ulink hover:text-white transition-colors"
-            >Helpers</a
-          >
-          <a href="#pricing" class="ulink hover:text-white transition-colors"
-            >Pricing</a
-          >
           <a href="#process" class="ulink hover:text-white transition-colors"
             >Process</a
+          >
+          <a href="#faq" class="ulink hover:text-white transition-colors"
+            >FAQ</a
           >
           <a href="blog.html" class="ulink hover:text-white transition-colors"
             >Blog</a
           >
         </nav>
         <div class="flex items-center gap-2">
-          <a href="#contact" class="btn-enquiry !text-sm">Enquiry</a>
+          <a href="#contact" class="btn-enquiry !text-sm"><span class="hidden sm:inline">Book a consultation</span><span class="sm:hidden">Consult</span></a>
           <a
-            href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20find%20a%20helper%20for%20my%20family."
+            href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20book%20a%20family%20consultation."
             class="btn-wa !py-2.5 !px-5 !text-sm"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -1215,8 +998,8 @@
         <div class="max-w-2xl">
           <div class="reveal">
             <span class="eyebrow !text-white/70 !bg-white/10 !border-white/15"
-              ><span class="dot !bg-warm"></span> Singapore · MOM-Licensed Maid
-              Agency</span
+              ><span class="dot !bg-warm"></span> Singapore · MOM-Licensed Employment Agency · EA Licence
+              No. 26C3573</span
             >
           </div>
           <h1
@@ -1236,13 +1019,13 @@
           <p
             class="reveal d2 mt-6 text-lg text-white/70 leading-relaxed max-w-lg"
           >
-            A sincere maid agency built on honest guidance, careful matching,
-            and long-term aftercare — so you bring the right person home, and
-            feel supported long after they arrive.
+            A licensed agency built on honest guidance, careful matching and
+            long-term aftercare — so your family feels supported at every
+            step, before and after placement.
           </p>
           <div class="reveal d3 mt-8 flex flex-wrap gap-3">
             <a
-              href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20speak%20to%20someone%20about%20finding%20a%20helper."
+              href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20book%20a%20family%20consultation."
               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-warm hover:bg-warm/90 text-white font-semibold transition-all duration-300"
             >
               <svg
@@ -1261,7 +1044,7 @@
               href="#contact"
               class="inline-flex items-center px-6 py-3.5 rounded-full bg-white hover:bg-white/90 text-deep font-semibold transition-all duration-300"
             >
-              Enquiry
+              Book a consultation
             </a>
             <a
               href="#process"
@@ -1301,7 +1084,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              MOM Licensed
+              MOM-licensed
             </div>
             <div class="flex items-center gap-2 text-white/60 text-sm">
               <svg
@@ -1317,7 +1100,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              6 Mo. Guarantee
+              EA Licence No. 26C3573
             </div>
             <div class="flex items-center gap-2 text-white/60 text-sm">
               <svg
@@ -1333,7 +1116,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              Up to 3 Replacements
+              Post-placement check-ins
             </div>
           </div>
         </div>
@@ -1348,26 +1131,14 @@
             class="flex items-center gap-10 px-6 shrink-0 text-deep italic text-lg"
             style="font-family: &quot;Fraunces&quot;, serif"
           >
-            <span>MOM-Licensed</span><span>·</span><span>Transparent Fees</span
-            ><span>·</span><span>6 Months Guarantee</span><span>·</span
-            ><span>Up to 3 Replacements</span><span>·</span
-            ><span>Myanmar &amp; Indonesia Helpers</span><span>·</span
-            ><span>Family-First Matching</span><span>·</span
-            ><span>Flexible Payment Plans</span><span>·</span
-            ><span>Buy Now Pay Later</span><span>·</span>
+            <span>MOM-licensed</span><span>·</span><span>EA Licence No. 26C3573</span><span>·</span><span>Family consultations</span><span>·</span><span>Care-needs assessment</span><span>·</span><span>First-time employer guidance</span><span>·</span><span>Documentation support</span><span>·</span><span>Post-placement check-ins</span><span>·</span>
           </div>
           <div
             class="flex items-center gap-10 px-6 shrink-0 text-deep italic text-lg"
             style="font-family: &quot;Fraunces&quot;, serif"
             aria-hidden="true"
           >
-            <span>MOM-Licensed</span><span>·</span><span>Transparent Fees</span
-            ><span>·</span><span>6 Months Guarantee</span><span>·</span
-            ><span>Up to 3 Replacements</span><span>·</span
-            ><span>Myanmar &amp; Indonesia Helpers</span><span>·</span
-            ><span>Family-First Matching</span><span>·</span
-            ><span>Flexible Payment Plans</span><span>·</span
-            ><span>Buy Now Pay Later</span><span>·</span>
+            <span>MOM-licensed</span><span>·</span><span>EA Licence No. 26C3573</span><span>·</span><span>Family consultations</span><span>·</span><span>Care-needs assessment</span><span>·</span><span>First-time employer guidance</span><span>·</span><span>Documentation support</span><span>·</span><span>Post-placement check-ins</span><span>·</span>
           </div>
         </div>
       </div>
@@ -1385,7 +1156,7 @@
               style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
               class="text-4xl md:text-5xl leading-[1.1] mt-5"
             >
-              A maid agency built<br />
+              An agency built<br />
               on <span class="italic text-deep">trust, not pressure.</span>
             </h2>
             <div
@@ -1402,13 +1173,13 @@
           <div class="reveal d1">
             <div class="space-y-5 text-lg text-slate leading-relaxed">
               <p>
-                SureHands Agency exists for one reason: to help families in
-                Singapore find reliable domestic helpers through honest
-                guidance, careful matching, and long-term support.
+                SureHands Agency exists for one reason: to help Singapore families
+                plan home care support the right way — through honest guidance,
+                careful matching and long-term support.
               </p>
               <p>
                 We started SureHands because we kept hearing the same story from
-                friends and neighbours — rushed interviews, vague bio-datas, and
+                friends and neighbours — rushed decisions, unclear information, and
                 agencies that disappeared the moment the contract was signed. We
                 believed it could be done differently.
               </p>
@@ -1420,25 +1191,17 @@
             </div>
             <div class="grid grid-cols-2 gap-4 mt-8">
               <div class="rounded-2xl border border-line p-5 bg-cream/40">
-                <div class="num text-3xl text-deep">6 Mo.</div>
-                <div class="text-sm text-slate mt-1">Placement Guarantee</div>
+                <div class="num text-3xl text-deep">26C3573</div>
+                <div class="text-sm text-slate mt-1">MOM EA Licence No.</div>
               </div>
               <div class="rounded-2xl border border-line p-5 bg-cream/40">
-                <div class="num text-3xl text-deep">3×</div>
-                <div class="text-sm text-slate mt-1">Free Replacements</div>
-              </div>
-              <div class="rounded-2xl border border-line p-5 bg-cream/40">
-                <div class="num text-3xl text-deep">100%</div>
-                <div class="text-sm text-slate mt-1">Transparent Pricing</div>
-              </div>
-              <div class="rounded-2xl border border-line p-5 bg-cream/40">
-                <div class="num text-3xl text-deep">MOM</div>
-                <div class="text-sm text-slate mt-1">Licensed Agency</div>
+                <div class="num text-3xl text-deep">Check-ins</div>
+                <div class="text-sm text-slate mt-1">Post-placement support</div>
               </div>
             </div>
             <div class="mt-8 flex flex-wrap items-center gap-3">
               <a
-                href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20know%20more."
+                href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20book%20a%20family%20consultation."
                 class="btn-wa inline-flex"
               >
               <svg
@@ -1453,40 +1216,32 @@
               </svg>
                 Talk to Us Today
               </a>
-              <a href="#contact" class="btn-enquiry">Enquiry</a>
+              <a href="#contact" class="btn-enquiry">Book a consultation</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== OUR HELPERS ===== -->
+    <!-- ===== CANDIDATE PREPARATION ===== -->
     <section class="py-24 md:py-32 bg-cream/60 border-y border-line">
       <div class="max-w-7xl mx-auto px-5 md:px-10">
-        <div class="reveal max-w-2xl mb-12">
-          <span class="eyebrow"><span class="dot"></span> Our Helpers</span>
+        <div class="reveal max-w-2xl">
+          <span class="eyebrow"
+            ><span class="dot"></span> Candidate Preparation</span
+          >
           <h2
             style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
             class="text-4xl md:text-6xl leading-[1.05] mt-5"
           >
-            Dedicated helpers<br />
-            <span class="italic text-deep">from trusted countries.</span>
+            Prepared for<br />
+            <span class="italic text-deep">your home's needs.</span>
           </h2>
           <p class="text-slate mt-5 text-lg leading-relaxed">
-            We carefully vet each helper — their experience, temperament,
-            language ability, and references — so you know exactly who is coming
-            into your home.
+            Before placement, we check each candidate's work experience,
+            language abilities and training. Training completed (e.g. eldercare,
+            infant care, cooking) is shared with you during your consultation.
           </p>
-        </div>
-        <div
-          class="reveal d1 rounded-3xl overflow-hidden shadow-[0_30px_80px_-30px_rgba(29,52,97,.2)]"
-        >
-          <img
-            src="images/countries-collage.jpg"
-            alt="Myanmar, Philippines and Indonesia helpers — dedicated, honest and reliable"
-            class="w-full object-cover"
-            loading="lazy"
-          />
         </div>
       </div>
     </section>
@@ -1525,6 +1280,35 @@
                 stroke-width="1.6"
               >
                 <path
+                  d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3
+              style="font-family: &quot;Fraunces&quot;, serif"
+              class="text-2xl mt-5"
+            >
+              First-Time Employer Consultation
+            </h3>
+            <p class="text-slate text-sm mt-3 leading-relaxed">
+              Your first placement should not feel like a gamble. We walk you
+              through MOM's employer responsibilities, contracts and house rules
+              — at your pace, with no pressure to decide on the spot.
+            </p>
+          </article>
+
+          <article class="soft-card p-7 reveal d1">
+            <div class="w-12 h-12 rounded-2xl bg-soft grid place-items-center">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#1D3461"
+                stroke-width="1.6"
+              >
+                <path
                   d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21a8 8 0 0 1 16 0"
                   stroke-linecap="round"
                 />
@@ -1534,16 +1318,16 @@
               style="font-family: &quot;Fraunces&quot;, serif"
               class="text-2xl mt-5"
             >
-              New Helper Placement
+              First-Time Placement Support
             </h3>
             <p class="text-slate text-sm mt-3 leading-relaxed">
-              Carefully selected helpers from Myanmar and Indonesia —
-              interviewed, briefed, and matched to your family's specific
-              routine and care needs.
+              For families arranging home care support for the first time. We
+              understand your routine and care needs, share suitable candidate
+              information with you privately, and guide you through every step.
             </p>
           </article>
 
-          <article class="soft-card p-7 reveal d1">
+          <article class="soft-card p-7 reveal d2">
             <div class="w-12 h-12 rounded-2xl bg-soft grid place-items-center">
               <svg
                 width="22"
@@ -1564,16 +1348,16 @@
               style="font-family: &quot;Fraunces&quot;, serif"
               class="text-2xl mt-5"
             >
-              Transfer Helper Matching
+              Transfer Placements
             </h3>
             <p class="text-slate text-sm mt-3 leading-relaxed">
-              Looking for an experienced helper already in Singapore? We share
-              full, honest references — including the reason for transfer — so
-              you decide with complete clarity.
+              For families considering a candidate already working in Singapore.
+              We share references and the reason for transfer privately, so you
+              can decide with clarity.
             </p>
           </article>
 
-          <article class="soft-card p-7 reveal d2">
+          <article class="soft-card p-7 reveal">
             <div class="w-12 h-12 rounded-2xl bg-soft grid place-items-center">
               <svg
                 width="22"
@@ -1601,35 +1385,6 @@
             </p>
           </article>
 
-          <article class="soft-card p-7 reveal">
-            <div class="w-12 h-12 rounded-2xl bg-soft grid place-items-center">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#1D3461"
-                stroke-width="1.6"
-              >
-                <path
-                  d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <h3
-              style="font-family: &quot;Fraunces&quot;, serif"
-              class="text-2xl mt-5"
-            >
-              First-Time Employer Consultation
-            </h3>
-            <p class="text-slate text-sm mt-3 leading-relaxed">
-              Your first helper should not feel like a gamble. We walk you
-              through expectations, costs, contracts, and house rules — at your
-              pace, with no pressure to decide on the spot.
-            </p>
-          </article>
-
           <article class="soft-card p-7 reveal d1">
             <div class="w-12 h-12 rounded-2xl bg-soft grid place-items-center">
               <svg
@@ -1652,7 +1407,7 @@
               style="font-family: &quot;Fraunces&quot;, serif"
               class="text-2xl mt-5"
             >
-              Elderly Care Matching
+              Eldercare Support Planning
             </h3>
             <p class="text-slate text-sm mt-3 leading-relaxed">
               Helpers with prior experience in dementia care, mobility support,
@@ -1682,420 +1437,65 @@
               style="font-family: &quot;Fraunces&quot;, serif"
               class="text-2xl mt-5"
             >
-              Childcare Helper Matching
+              Childcare Support Planning
             </h3>
             <p class="text-slate text-sm mt-3 leading-relaxed">
-              For young families and newborns. We prioritise helpers with
-              verified childcare experience and a calm, gentle temperament — and
-              we'll always be honest when a candidate isn't quite right.
+              For young families and newborns. We prioritise candidates with
+              verified childcare experience or completed infant-care training —
+              and we'll always be honest when a candidate isn't the right fit.
             </p>
           </article>
         </div>
+        <p class="reveal mt-10 text-center text-slate leading-relaxed">
+          We can also coordinate arrival logistics, medical checks and document
+          renewals — details during your consultation.
+        </p>
       </div>
     </section>
 
-    <!-- ===== AVAILABLE HELPERS ===== -->
-    <section
-      id="helpers"
-      class="py-24 md:py-32 bg-cream/60 border-y border-line"
-    >
-      <div class="max-w-7xl mx-auto px-5 md:px-10">
-        <div
-          class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+    <!-- ===== CANDIDATE PRIVACY ===== -->
+    <section class="py-24 md:py-32 bg-cream/60 border-y border-line">
+      <div class="max-w-3xl mx-auto px-5 md:px-10 text-center reveal">
+        <span class="eyebrow"><span class="dot"></span> Privacy &amp; Dignity</span>
+        <h2
+          style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
+          class="text-4xl md:text-5xl leading-[1.1] mt-5"
         >
-          <div class="reveal max-w-2xl">
-            <span class="eyebrow"
-              ><span class="dot"></span> Meet Our Helpers</span
-            >
-            <h2
-              style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
-              class="text-4xl md:text-6xl leading-[1.05] mt-5"
-            >
-              Helpers ready<br />
-              <span class="italic text-deep">to join your family.</span>
-            </h2>
-          </div>
-          <p class="reveal d1 max-w-sm text-slate leading-relaxed">
-            A glimpse of the helpers in our pool right now — each one
-            interviewed, vetted, and ready to be matched.
-          </p>
-        </div>
-
-        <div id="helpers-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Helper cards injected by JS -->
-        </div>
-
-        <div
-          id="helpers-skeleton"
-          class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          <div class="blog-skeleton-card">
-            <div class="blog-skeleton-image"></div>
-            <div class="blog-skeleton-body">
-              <div class="blog-skeleton-line blog-skeleton-line--short"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--title"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--text"></div>
-            </div>
-          </div>
-          <div class="blog-skeleton-card">
-            <div class="blog-skeleton-image"></div>
-            <div class="blog-skeleton-body">
-              <div class="blog-skeleton-line blog-skeleton-line--short"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--title"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--text"></div>
-            </div>
-          </div>
-          <div class="blog-skeleton-card">
-            <div class="blog-skeleton-image"></div>
-            <div class="blog-skeleton-body">
-              <div class="blog-skeleton-line blog-skeleton-line--short"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--title"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--text"></div>
-            </div>
-          </div>
-          <div class="blog-skeleton-card">
-            <div class="blog-skeleton-image"></div>
-            <div class="blog-skeleton-body">
-              <div class="blog-skeleton-line blog-skeleton-line--short"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--title"></div>
-              <div class="blog-skeleton-line blog-skeleton-line--text"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <button
-            type="button"
-            id="helpers-load-more"
-            class="helpers-load-more hidden"
-          >
-            <span class="helpers-load-more__spinner"></span>
-            <span class="helpers-load-more__label">Load More</span>
-          </button>
-        </div>
-
-        <div id="helpers-empty" class="hidden text-center py-16">
-          <div
-            style="font-family: &quot;Fraunces&quot;, serif"
-            class="text-2xl text-ink"
-          >
-            No helpers available right now
-          </div>
-          <p class="text-slate mt-2">
-            Check back soon, or message us on WhatsApp for the latest
-            availability.
-          </p>
+          Candidate information<br />
+          <span class="italic text-deep">is shared privately.</span>
+        </h2>
+        <p class="text-slate mt-5 text-lg leading-relaxed">
+          To protect the privacy and dignity of every candidate, we share
+          candidate details only with families who request them after a
+          consultation. Tell us about your household and we'll take it from
+          there.
+        </p>
+        <div class="mt-8">
+          <a href="#contact" class="btn-enquiry">Book a consultation</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== PRICING ===== -->
-    <section
-      id="pricing"
-      class="py-24 md:py-32 bg-cream/60 border-y border-line"
-    >
-      <div class="max-w-7xl mx-auto px-5 md:px-10">
-        <div class="reveal max-w-2xl mb-14">
-          <span class="eyebrow"
-            ><span class="dot"></span> Transparent Pricing</span
-          >
-          <h2
-            style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
-            class="text-4xl md:text-6xl leading-[1.05] mt-5"
-          >
-            Clear fees,<br /><span class="italic text-deep">no surprises.</span>
-          </h2>
-          <p class="text-slate mt-5 text-lg">
-            All prices include insurance and bond. No hidden charges — ever.
-          </p>
-        </div>
-
-        <!-- Helper Pricing -->
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
-          <div class="price-card reveal">
-            <div
-              class="p-7"
-              style="background: linear-gradient(135deg, #1d3461, #2e5a86)"
-            >
-              <div class="flex items-center gap-4">
-                <span class="text-4xl">🇲🇲</span>
-                <div>
-                  <h3
-                    style="font-family: &quot;Fraunces&quot;, serif"
-                    class="text-2xl text-white"
-                  >
-                    Myanmar Helpers
-                  </h3>
-                  <p class="text-white/70 text-sm mt-1">
-                    All prices include insurance &amp; bond
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="p-7">
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">New Helper</div>
-                  <div class="text-xs text-mist mt-0.5">Fresh from Myanmar</div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">Ex-Singapore Helper</div>
-                  <div class="text-xs text-mist mt-0.5">
-                    Prior SG experience
-                  </div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">Transfer Helper</div>
-                  <div class="text-xs text-mist mt-0.5">Local transfer</div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">Direct Hire</div>
-                  <div class="text-xs text-mist mt-0.5">Fly from Yangon</div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <p class="text-xs text-mist italic mt-5">
-                Carefully selected Myanmar helpers for your home. ♡
-              </p>
-            </div>
-          </div>
-
-          <div class="price-card reveal d1">
-            <div
-              class="p-7"
-              style="background: linear-gradient(135deg, #1d3461, #2e5a86)"
-            >
-              <div class="flex items-center gap-4">
-                <span class="text-4xl">🇮🇩</span>
-                <div>
-                  <h3
-                    style="font-family: &quot;Fraunces&quot;, serif"
-                    class="text-2xl text-white"
-                  >
-                    Indonesia Helpers
-                  </h3>
-                  <p class="text-white/70 text-sm mt-1">
-                    Experienced helpers, better support
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="p-7">
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">New Helper</div>
-                  <div class="text-xs text-mist mt-0.5">
-                    Fresh from Indonesia
-                  </div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">Ex-Singapore Helper</div>
-                  <div class="text-xs text-mist mt-0.5">
-                    Prior SG experience
-                  </div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">Transfer Helper</div>
-                  <div class="text-xs text-mist mt-0.5">Local transfer</div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <p class="text-xs text-mist italic mt-5">
-                Experienced helpers. Better support. Happier homes. ♡
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Other Services + Additional -->
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-          <div class="price-card reveal">
-            <div class="p-6 border-b border-line">
-              <h3
-                style="font-family: &quot;Fraunces&quot;, serif"
-                class="text-2xl"
-              >
-                Other Services
-              </h3>
-              <p class="text-slate text-sm mt-1">
-                We handle the paperwork, you enjoy peace of mind.
-              </p>
-            </div>
-            <div class="p-6">
-              <div class="price-row">
-                <div class="font-semibold">Work Permit Renewal</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div>
-                  <div class="font-semibold">Direct Hire Transfer</div>
-                  <div class="text-xs text-mist mt-0.5">Local transfer</div>
-                </div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="price-card reveal d1">
-            <div class="p-6 border-b border-line">
-              <h3
-                style="font-family: &quot;Fraunces&quot;, serif"
-                class="text-2xl"
-              >
-                Additional Services
-              </h3>
-              <p class="text-slate text-sm mt-1">
-                Transparent pricing, no hidden fees.
-              </p>
-            </div>
-            <div class="p-6">
-              <div class="price-row">
-                <div class="font-medium">Ex-Taiwan / Ex-HK</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div class="font-medium">Airport Transportation</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div class="font-medium">Lodging Fee</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div class="font-medium">Flight Ticket Admin</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div class="font-medium">Home Pickup Service</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-              <div class="price-row">
-                <div class="font-medium">Hepatitis A/B/C Vaccination</div>
-                <div class="text-sm font-semibold text-warm">
-                  WhatsApp to Enquire
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guarantee badges -->
-        <div class="reveal flex flex-wrap justify-center gap-6 mb-10">
-          <div class="flex items-center gap-2 text-sm text-slate">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1D3461"
-              stroke-width="2"
-            >
-              <path
-                d="m5 12 5 5 9-11"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            6 Months Guarantee
-          </div>
-          <div class="flex items-center gap-2 text-sm text-slate">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1D3461"
-              stroke-width="2"
-            >
-              <path
-                d="m5 12 5 5 9-11"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Up to 3 Free Replacements
-          </div>
-          <div class="flex items-center gap-2 text-sm text-slate">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1D3461"
-              stroke-width="2"
-            >
-              <path
-                d="m5 12 5 5 9-11"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            No Hidden Fees
-          </div>
-          <div class="flex items-center gap-2 text-sm text-slate">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1D3461"
-              stroke-width="2"
-            >
-              <path
-                d="m5 12 5 5 9-11"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Fast Processing
-          </div>
-        </div>
-        <div class="text-center reveal">
+    <!-- ===== CONSULTATION ===== -->
+    <section id="consultation" class="py-24 md:py-32">
+      <div class="max-w-3xl mx-auto px-5 md:px-10 text-center reveal">
+        <span class="eyebrow"><span class="dot"></span> Family Consultation</span>
+        <h2
+          style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
+          class="text-4xl md:text-5xl leading-[1.1] mt-5"
+        >
+          Start with a<br />
+          <span class="italic text-deep">family consultation.</span>
+        </h2>
+        <p class="text-slate mt-5 text-lg leading-relaxed">
+          Every household is different. In a relaxed conversation — on WhatsApp
+          or in person — we'll understand your routines and care needs, explain
+          your responsibilities as an employer, and walk you through the process
+          and our service agreement in writing before you decide.
+        </p>
+        <div class="mt-8">
           <a
-            href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20know%20more%20about%20your%20pricing."
+            href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20book%20a%20family%20consultation."
             class="btn-wa"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -2103,63 +1503,8 @@
                 d="M19.05 4.91A10 10 0 0 0 4.9 19.06L4 23l4.07-1.06A10 10 0 1 0 19.05 4.91Zm-7.05 16a8 8 0 0 1-4.07-1.12l-.29-.17-2.4.63.64-2.34-.19-.3A8 8 0 1 1 12 20.91Zm4.4-5.96c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
               />
             </svg>
-            Ask About Pricing on WhatsApp
+            Book a consultation on WhatsApp
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PAYMENT OPTIONS ===== -->
-    <section class="py-16 md:py-20 border-b border-line">
-      <div class="max-w-5xl mx-auto px-5 md:px-10">
-        <div class="reveal text-center mb-10">
-          <span class="eyebrow"
-            ><span class="dot"></span> Flexible Payment Options</span
-          >
-          <h2
-            style="font-family: &quot;Fraunces&quot;, serif; font-weight: 300"
-            class="text-3xl md:text-4xl mt-5"
-          >
-            Buy now, pay later —
-            <span class="italic text-deep">up to 12 months.</span>
-          </h2>
-        </div>
-        <div class="reveal d1 mb-8">
-          <p
-            class="text-center text-xs text-mist uppercase tracking-[.14em] mb-5"
-          >
-            Buy Now Pay Later (1, 3, 6, 12 months)
-          </p>
-          <div class="flex flex-wrap justify-center gap-3">
-            <div class="pay-badge">🅐 Atome</div>
-            <div class="pay-badge">🟢 Grab PayLater</div>
-            <div class="pay-badge">🟠 Shopee PayLater</div>
-            <div class="pay-badge">🛍 ShopBack PayLater</div>
-          </div>
-        </div>
-        <div class="reveal d2">
-          <p
-            class="text-center text-xs text-mist uppercase tracking-[.14em] mb-5"
-          >
-            All Major Payment Methods Accepted
-          </p>
-          <div class="flex flex-wrap justify-center gap-3">
-            <div class="pay-badge">VISA</div>
-            <div class="pay-badge">Mastercard</div>
-            <div class="pay-badge">Amex</div>
-            <div class="pay-badge">JCB</div>
-            <div class="pay-badge">UnionPay</div>
-            <div class="pay-badge">Apple Pay</div>
-            <div class="pay-badge">Google Pay</div>
-            <div class="pay-badge">GrabPay</div>
-            <div class="pay-badge">Shopee Pay</div>
-            <div class="pay-badge">PayNow</div>
-            <div class="pay-badge">Bank Transfer</div>
-          </div>
-          <p class="text-center text-xs text-mist mt-5">
-            🔒 Secure payments processed by 2C2P · Up to 12 months instalments
-            available
-          </p>
         </div>
       </div>
     </section>
@@ -2182,8 +1527,8 @@
             </h2>
           </div>
           <p class="reveal d1 max-w-xs text-slate leading-relaxed">
-            No rushing, no pressure. Just a calm, structured process to bring
-            the right helper home.
+            No rushing, no pressure. Just a calm, structured process from first
+            conversation to settled routine.
           </p>
         </div>
 
@@ -2226,13 +1571,14 @@
                 style="font-family: &quot;Fraunces&quot;, serif"
                 class="text-2xl"
               >
-                Recommend suitable helpers
+                Share suitable candidates privately
               </h4>
               <p class="text-slate mt-3 leading-relaxed text-[15px]">
                 We hand-pick a small shortlist — never an overwhelming list of
-                bio-datas. Each candidate comes with a full, honest profile:
+                options. Each candidate comes with a full, honest profile:
                 experience, language ability, family situation, and our personal
-                notes from interviewing them.
+                notes from interviewing them. Candidate details are shared only
+                with your family, on request.
               </p>
             </div>
           </li>
@@ -2309,8 +1655,8 @@
               >
                 We stay involved long after placement — checking in regularly,
                 mediating misunderstandings, and supporting both family and
-                helper. 6-month guarantee with up to 3 free replacements
-                included.
+                helper. Your service agreement sets out the support that applies —
+                we walk you through it before you sign.
               </p>
             </div>
           </li>
@@ -2364,8 +1710,8 @@
               Transparent guidance
             </h3>
             <p class="text-slate mt-3 leading-relaxed text-sm">
-              Full bio-datas, real references, and clear cost breakdowns — so
-              you understand every fee before you commit.
+              Real references and every term explained in writing before you
+              sign.
             </p>
           </div>
           <div class="bg-paper p-8 reveal d1">
@@ -2448,7 +1794,7 @@
               Ongoing support
             </h3>
             <p class="text-slate mt-3 leading-relaxed text-sm">
-              6-month aftercare included. Check-ins, mediation, training tips,
+              Post-placement check-ins, mediation, training tips,
               and someone to call when life gets complicated.
             </p>
           </div>
@@ -2573,15 +1919,16 @@
                 <span
                   style="font-family: &quot;Fraunces&quot;, serif"
                   class="text-xl md:text-2xl"
-                  >How much does it cost to hire a helper?</span
+                  >How do I get full details for my situation?</span
                 >
                 <span class="pm text-2xl text-deep leading-none flex-shrink-0"
                   >+</span
                 >
               </summary>
               <p class="mt-4 text-slate leading-relaxed">
-                All prices include insurance and bond. WhatsApp us for a clear,
-                written breakdown before you commit — no hidden charges, ever.
+                Book a consultation. We'll explain the process, timelines and our
+                service agreement in writing, and answer any questions before
+                you decide.
               </p>
             </details>
             <details class="py-6 reveal">
@@ -2589,17 +1936,17 @@
                 <span
                   style="font-family: &quot;Fraunces&quot;, serif"
                   class="text-xl md:text-2xl"
-                  >What if the helper isn't the right fit?</span
+                  >What happens if things don't work out?</span
                 >
                 <span class="pm text-2xl text-deep leading-none flex-shrink-0"
                   >+</span
                 >
               </summary>
               <p class="mt-4 text-slate leading-relaxed">
-                Our placements include a 6-month guarantee with up to 3 free
-                replacements. We always mediate first — small misunderstandings
-                often resolve with a calm conversation. If a replacement is
-                genuinely needed, we re-match thoughtfully, not hastily.
+                We stay involved after placement with regular check-ins, and we
+                always mediate first — most misunderstandings resolve with a calm
+                conversation. Your service agreement sets out the support that
+                applies, and we walk you through it before you sign.
               </p>
             </details>
             <details class="py-6 reveal">
@@ -2652,24 +1999,6 @@
                 For renewals: existing work permit and helper's passport. We
                 handle everything else — work permit application, medical exams,
                 insurance, and onboarding paperwork — on your behalf.
-              </p>
-            </details>
-            <details class="py-6 reveal">
-              <summary class="flex items-center justify-between gap-6">
-                <span
-                  style="font-family: &quot;Fraunces&quot;, serif"
-                  class="text-xl md:text-2xl"
-                  >Do you accept instalment payments?</span
-                >
-                <span class="pm text-2xl text-deep leading-none flex-shrink-0"
-                  >+</span
-                >
-              </summary>
-              <p class="mt-4 text-slate leading-relaxed">
-                Yes! We accept Atome, Grab PayLater, Shopee PayLater, and
-                ShopBack PayLater for 1, 3, 6, or 12 month instalments. We also
-                accept Visa, Mastercard, Amex, JCB, UnionPay, Apple Pay, Google
-                Pay, GrabPay, PayNow, and bank transfer.
               </p>
             </details>
           </div>
@@ -2789,9 +2118,9 @@
                 "
                 class="text-4xl md:text-6xl leading-[1.05] mt-5 text-white"
               >
-                Let us help you find<br />the right
+                Let's plan the right<br />
                 <span class="italic" style="color: #7aa8d6"
-                  >person for your home.</span
+                  >support for your home.</span
                 >
               </h2>
               <p
@@ -2820,7 +2149,7 @@
             </div>
             <div class="md:col-span-5 flex md:justify-end">
               <a
-                href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20speak%20to%20someone%20about%20finding%20a%20helper."
+                href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20book%20a%20family%20consultation."
                 class="btn-wa !py-5 !px-8 !text-base"
               >
                 <svg
@@ -2855,7 +2184,7 @@
           class="text-3xl md:text-5xl leading-tight mt-4 text-ink"
         >
           Speak with a
-          <span class="italic text-deep">Matching Specialist.</span>
+          <span class="italic text-deep">SureHands consultant.</span>
         </h2>
         <p
           class="text-slate mt-4 text-base md:text-lg leading-relaxed max-w-xl mx-auto"
@@ -2864,6 +2193,7 @@
           in touch with thoughtful guidance.
         </p>
         <div id="surehandsContactContainer" class="mt-10 text-left"></div>
+        <p class="mt-8 text-xs text-mist">SureHands Agency Pte. Ltd. · EA Licence No. 26C3573</p>
       </div>
     </section>
 
@@ -2897,8 +2227,8 @@
               class="text-sm leading-relaxed max-w-sm"
               style="color: rgba(252, 251, 248, 0.5)"
             >
-              Helping Singaporean families find reliable domestic helpers —
-              through honest guidance, careful matching, and long-term
+              Helping Singapore families plan the right home care support —
+              through honest guidance, careful matching and long-term
               aftercare.
             </p>
           </div>
@@ -2918,16 +2248,6 @@
               <li>
                 <a href="#services" class="hover:text-white transition-colors"
                   >Services</a
-                >
-              </li>
-              <li>
-                <a href="#helpers" class="hover:text-white transition-colors"
-                  >Helpers</a
-                >
-              </li>
-              <li>
-                <a href="#pricing" class="hover:text-white transition-colors"
-                  >Pricing</a
                 >
               </li>
               <li>
@@ -2993,7 +2313,8 @@
               <li><a href="https://www.instagram.com/surehandsagency_sg/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Instagram · @surehandsagency_sg</a></li>
               <li>Mon–Sat · 9am–7pm</li>
               <li class="pt-3 text-xs" style="color: rgba(252, 251, 248, 0.4)">
-                MOM-Licensed Employment Agency
+                SureHands Agency Pte. Ltd. · EA Licence No. 26C3573<br />
+                MOM-licensed employment agency, Singapore
               </li>
             </ul>
           </div>
@@ -3006,7 +2327,7 @@
           "
         >
           <span
-            >© <span id="yr"></span> SureHands Agency. All rights
+            >© <span id="yr"></span> SureHands Agency Pte. Ltd. All rights
             reserved.</span
           >
           <div>
@@ -3057,7 +2378,7 @@
 
     <!-- ===== STICKY WHATSAPP ===== -->
     <a
-      href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20speak%20to%20someone%20about%20finding%20a%20helper."
+      href="https://wa.me/6588071780?text=Hi%20SureHands%2C%20I%27d%20like%20to%20book%20a%20family%20consultation."
       aria-label="Chat with SureHands on WhatsApp"
       class="fixed bottom-6 right-6 z-50"
     >
@@ -3116,10 +2437,6 @@
     </script>
 
     <script src="js/brand-contact.js" data-brand-slug="sureHands"></script>
-    <script src="js/helpers.js"></script>
-    <script>
-      if (typeof initHelpersSection === "function") initHelpersSection();
-    </script>
     <script src="js/contact.js"></script>
     <script src="js/notice-board.js"></script>
     <script>
