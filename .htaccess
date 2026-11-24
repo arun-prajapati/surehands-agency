@@ -4,6 +4,11 @@
     # One canonical host: www -> apex
     RewriteCond %{HTTP_HOST} ^www\.surehandagency\.com$ [NC]
     RewriteRule ^(.*)$ https://surehandagency.com/$1 [R=301,L]
+    # Compliance cleanup (EALC Condition 17 / Annex F): public helper profiles
+    # and retired pricing/helper imagery are permanently gone (410).
+    RewriteRule ^helper-details\.html$ - [G,L]
+    RewriteRule ^js/helpers\.js$ - [G,L]
+    RewriteRule ^images/(countries-collage|services-collage|myanmar-pricing|indonesia-pricing|payment)\.jpg$ - [G,L]
     # /blog and /blog/ -> the real blog page
     RewriteRule ^blog/?$ /blog.html [R=301,L]
     # One URL per legal page: the folder copies 301 to the .html URL in the sitemap
